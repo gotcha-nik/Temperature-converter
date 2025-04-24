@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temperature Converter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section>
+    <h2>Temperature Converter</h2>
+    <input type="number" id="temp" placeholder="Enter value">
+    <select id="unit">
+      <option value="CtoF">Celsius to Fahrenheit</option>
+      <option value="FtoC">Fahrenheit to Celsius</option>
+    </select>
+    <button onclick="convertTemp()">Convert</button>
+    <p id="result"></p>
+  </section>
+  <script>
+    function convertTemp() {
+      const temp = parseFloat(document.getElementById("temp").value);
+      const unit = document.getElementById("unit").value;
+      let result = "";
+      if (unit === "CtoF") {
+        result = (temp * 9/5) + 32 + " °F";
+      } else {
+        result = ((temp - 32) * 5/9) + " °C";
+      }
+      document.getElementById("result").textContent = result;
+    }
+  </script>
+</body>
+</html>
